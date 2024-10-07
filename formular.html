@@ -1,9 +1,40 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head><meta charset='utf-8'>
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formular</title>
+    <link rel="stylesheet" href="styleFormular.css" type="text/css">
 </head>
 <body>
+<header>
+    <a href="#" class="logo">Cviko2</a>
+    <nav class="navbar">
+        <ul>
+            <li>
+                <a href="formular.html">Formular<span></span><span></span></a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="content">
+    <div class="form">
+        <div class="progress">
+            <div class="form-logo"><a href="#"><span>Game</span><span>Zone</span></a></div>
+            <ul class="progress-steps">
+                <li class="step-active">
+                    <span>1</span>
+                    <p>Personal<br><span>25 seconds to complete</span></p>
+                </li>
+                 <li class="step">
+                        <span>2</span>
+                        <p>Choice<br><span>1 minute to complete</span></p>
+                    </li>
+                 <li class="step">
+                        <span>3</span>
+                        <p>Contact<br><span>25 seconds to complete</span></p>
+                    </li>
+            </ul>
+        </div>
     <form action="https://form2mail.iolab.sk/form2mail.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="apikey" value="5266ddba4fd295f9d8c270e4168ed8f7">
         <input type="hidden" name="from" value="Lilia Zhuravel">
@@ -12,33 +43,101 @@
         <input type="hidden" name="subject" value="WEBTE1">
         <input type="hidden" name="redirectOk" value="redirectOk.html">
         <input type="hidden" name="redirectFalse" value="redirectFalse.html  посилання з сервера">
-        <label>
-            Name
-            <input type="text" name="name">
-        </label>
-        <br>
-        <label>
-            Surname
-            <input type="text" name="surname">
-            <br>
-        </label>
-        <label>
-            Date of birth
-            <input type="text" name="dateOfBirth">
-        </label>
-        <br>
-        <label>
-            Text
-            <textarea name="text"></textarea>
-        </label>
-        <br>
-        <label>
-            Attachment
-            <input type="file" name="attachment">
-        </label>
-        <br>
-        <input type="submit" value="odoslaĹĄ">
+        <div class="form-one form-step">
+           <div class="bg-svg"></div>
+            <h2>Personal information</h2>
+            <p>Enter your personal information correctly</p>
+            <div>
+                <label>
+                    First Name
+                    <input type="text" placeholder="Tyler">
+                </label>
+            </div>
+            <div>
+                <label>
+                    Last Name
+                    <input type="text" placeholder="Blevins">
+                </label>
+            </div>
+            <div class="birth">
+                <label>Date of Birth</label>
+                <div class="grouping">
+                    <label>
+                        <input type="text" pattern="[0-9]*" name="day" value="" min="0" max="31">
+                        <input type="text" pattern="[0-9]*" name="month" value="" min="1" max="12">
+                        <input type="text" pattern="[0-9]*" name="year" value="" min="1900" max="2050">
+                    </label>
+                </div>
+            </div>
+<!--            <div class="bg-img"><img src="images/arcade-back.jpg" alt="background-with-arcades"></div>-->
+        </div>
+        <div class="form-two form-step">
+            <div class="bg-svg"></div>
+            <h2>Choice</h2>
+            <div>
+                <label>
+                    zhanr
+                    <input type="text">
+                </label>
+            </div><div>
+                <label>
+                    zhanr
+                    <input type="text">
+                </label>
+            </div><div>
+                <label>
+                    zhanr
+                    <input type="text">
+                </label>
+            </div><div>
+                <label>
+                    zhanr
+                    <input type="text">
+                </label>
+            </div>
+        </div>
+        <div class="form-three form-step">
+            <h2>Contact</h2>
+            <p>enter your contacts please</p>
+            <label>
+                Phone
+                <input type="tel" placeholder="421******">
+            </label>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn-prev" disabled>Back</button>
+            <button type="button" class="btn-prev">Next</button>
+            <button type="button" class="btn-prev">Submit</button>
+        </div>
     </form>
-
+    </div>
+    <div class="firm-info">
+        <div class="picture">
+            <img src="./images/arcade-back.jpg" alt="background picture">
+            <div class="clickable-arcade">
+                <input type="image" src="/images/av8.png" alt="Кнопка «input»">
+                <p>click to fill out the form</p>
+            </div>
+            <div class="contact">
+                <p>wca</p>
+                <p>rvce</p>
+            </div>
+        </div>
+        <div class="info">
+            <h1>We are GameZone team</h1>
+            <br>
+            <p>Hello! We are the GameZone team that will make your evening unforgettable! If you love games, this is the place for you. We have everything from board games to escape rooms, and that's not all. We have been giving memories for twenty years!</p>
+            <br>
+            <p>In addition to classic entertainment, we are constantly expanding and adding new ones. We have recently opened a computer gaming area where you can immerse yourself in the fascinating world of video games. Modern computers, the latest releases, and comfortable gaming spaces - all this awaits you in GameZone.</p>
+            <br>
+            <p>In addition, we are pleased to announce the opening of a billiard room and a bowling club. These are ideal places for a fun time with friends or corporate events. Whether it's a bowling competition or a game of billiards, active recreation is guaranteed!</p>
+            <br>
+            <p>Our escape room continues to surprise with new plots and challenges. Can you solve all the puzzles and get out on time?</p>
+            <br>
+            <p>Come to us and spend your time unforgettably. Everyone will find something for themselves in GameZone. An evening with us is an evening filled with laughter, excitement and pleasant memories.</p>
+        </div>
+    </div>
+</div>
+<script src="scriptFormular.js"></script>
 </body>
 </html>
