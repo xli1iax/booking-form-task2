@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="c794a20d-d553-4bff-9b4f-dfd325bd79ea" name="task1" url="">
+        <fileTransfer rootFolder="/home/xzhuravel/public_html/task2" accessType="SFTP" host="webte1.fei.stuba.sk" port="22" sshConfigId="0c1b340e-e3ff-49a2-ae2a-93a6903b7a1c" sshConfig="xzhuravel@webte1.fei.stuba.sk:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

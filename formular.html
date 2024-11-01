@@ -1,9 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head><meta charset='utf-8'>
+<head>
+    <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formular</title>
+    <link rel="stylesheet" href="phone-number-validation/build/css/demo.css" type="text/css">
+    <link rel="stylesheet" href="phone-number-validation/build/css/intlTelInput.css" type="text/css">
     <link rel="stylesheet" href="styleFormular.css" type="text/css">
+
 </head>
 <body>
 <header>
@@ -16,113 +20,422 @@
         </ul>
     </nav>
 </header>
-<div class="content">
-    <div class="form">
+<div class="box">
+    <div class="bg-images">
+        <div class="dark-overlay" id="darkOverlay"></div>
+        <div><img id="main-bg" src="images/arcade-back.jpg" alt="background arcade"></div>
+        <div class="default"><video id="game-bg" src="images/bg-game.mp4" autoplay loop muted></video></div>
+        <div class="default"><img id="quest-bg" src="images/bg-quest.gif" alt="background arcade"></div>
+        <div class="default"><img id="board-bg" src="images/bg-board.gif" alt="background arcade"></div>
+    </div>
+    <div class="container">
+    <div class="form-box">
         <div class="progress">
-            <div class="form-logo"><a href="#"><span>Game</span><span>Zone</span></a></div>
+            <div class="form-logo"><a href="#"><span>Game</span>Zone</a></div>
             <ul class="progress-steps">
-                <li class="step-active">
+                <li class="step active">
                     <span>1</span>
-                    <p>Personal<br><span>25 seconds to complete</span></p>
+                    <p>Personal<br><span>Name, last name, sex, age, birthday</span></p>
                 </li>
-                 <li class="step">
-                        <span>2</span>
-                        <p>Choice<br><span>1 minute to complete</span></p>
-                    </li>
-                 <li class="step">
-                        <span>3</span>
-                        <p>Contact<br><span>25 seconds to complete</span></p>
-                    </li>
+                <li class="step">
+                    <span>2</span>
+                    <p>Choice<br><span>Choose between games, quests or<br> board games</span></p>
+                </li><li class="step">
+                    <span>3</span>
+                    <p>Contact<br><span>    Phone number and email address             </span></p>
+                </li>
             </ul>
         </div>
-    <form action="https://form2mail.iolab.sk/form2mail.php" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="apikey" value="5266ddba4fd295f9d8c270e4168ed8f7">
-        <input type="hidden" name="from" value="Lilia Zhuravel">
-        <input type="hidden" name="sender" value="xzhuravel@stubs.sk">
-        <input type="hidden" name="to" value="liliazuravel6@gmail.com">
-        <input type="hidden" name="subject" value="WEBTE1">
-        <input type="hidden" name="redirectOk" value="redirectOk.html">
-        <input type="hidden" name="redirectFalse" value="redirectFalse.html  посилання з сервера">
-        <div class="form-one form-step">
-           <div class="bg-svg"></div>
-            <h2>Personal information</h2>
-            <p>Enter your personal information correctly</p>
-            <div>
-                <label>
-                    First Name
-                    <input type="text" placeholder="Tyler">
-                </label>
-            </div>
-            <div>
-                <label>
-                    Last Name
-                    <input type="text" placeholder="Blevins">
-                </label>
-            </div>
-            <div class="birth">
-                <label>Date of Birth</label>
-                <div class="grouping">
-                    <label>
-                        <input type="text" pattern="[0-9]*" name="day" value="" min="0" max="31">
-                        <input type="text" pattern="[0-9]*" name="month" value="" min="1" max="12">
-                        <input type="text" pattern="[0-9]*" name="year" value="" min="1900" max="2050">
+        <div class="3steps-form">
+            <form action="https://form2mail.iolab.sk/form2mail.php" method="post" enctype="multipart/form-data" id="booking-form" >
+            <input type="hidden" name="apikey" value="5266ddba4fd295f9d8c270e4168ed8f7">
+            <input type="hidden" name="from" value="xzhuravel@stubs.sk">
+            <input type="hidden" name="sender" value="xzhuravel@stubs.sk">
+            <input type="hidden" name="to" value="feistu02@gmail.com">
+            <input type="hidden" name="subject" value="WEBTE1">
+            <input type="hidden" name="redirectOk" value="https://webte1.fei.stuba.sk/~xzhuravel/task2/task2/redirectOk.html">
+            <input type="hidden" name="redirectFalse" value="https://webte1.fei.stuba.sk/~xzhuravel/task2/task2/redirectFalse.html">
+
+            <div class="form-one form-step">
+               <div class="bg-svg"></div>
+                <h2>Personal information</h2>
+                <p>Enter your personal information correctly</p>
+                <div>
+                    <label for="first-name">
+                        First Name<span class="required">*</span>
                     </label>
+                    <input class="apply-class" type="text" id="first-name" name="first-name" placeholder="Tyler" maxlength="20" required>
+                    <p class="result" id="first-name-result"></p>
+                    <div class="form-error first-name-error" style="display:none;"></div>
+                </div>
+                <div>
+                    <label for="last-name">
+                        Last Name<span class="required">*</span>
+                    </label>
+                    <input class="apply-class" type="text" id="last-name" name="last-name" placeholder="Blevins" maxlength="20" required >
+                    <p class="result" id="last-name-result"></p>
+                    <br>
+                    <div class="form-error last-name-error" style="display:none;"></div>
+                </div>
+                <div class="birth">
+                    <div class="grouping">
+                        <div class="birth-block date">
+                            <label for="date">
+                                Birth Date<span class="required">*</span>
+                            </label>
+                            <input class="apply-class" type="date" id="date" name="birth" required>
+                        </div>
+                        <div class="birth-block">
+                            <label for="age">
+                                Age<span class="required">*</span>
+                            </label>
+                            <input class="apply-class" type="number" name="age" id="age" min="0" max="200" required>
+                        </div>
+                    </div>
+                     <div class="form-error birth-error"></div>
+                </div>
+                <div class="radio-choice-group">
+                    <div class="radio-choice-item">
+                        <input id="man" type="radio" name="radio-gender" required>
+                        <div class="radio-tile">
+                            <img src="icons/man.svg" alt="costume">
+                            <label for="man">Man</label>
+                        </div>
+                    </div>
+                    <div class="radio-choice-item">
+                        <input id="female" type="radio" name="radio-gender" required>
+                        <div class="radio-tile">
+                            <img src="icons/woman.svg" alt="chess">
+                            <label for="female">Woman</label>
+                        </div>
+                    </div>
+                    <div class="radio-choice-item">
+                        <input id="spy" type="radio" name="radio-gender" required>
+                        <div class="radio-tile">
+                            <img src="icons/spy.svg" alt="computer">
+                            <label for="spy">Other</label>
+                        </div>
+                    </div>
                 </div>
             </div>
-<!--            <div class="bg-img"><img src="images/arcade-back.jpg" alt="background-with-arcades"></div>-->
-        </div>
-        <div class="form-two form-step">
-            <div class="bg-svg"></div>
-            <h2>Choice</h2>
-            <div>
-                <label>
-                    zhanr
-                    <input type="text">
-                </label>
-            </div><div>
-                <label>
-                    zhanr
-                    <input type="text">
-                </label>
-            </div><div>
-                <label>
-                    zhanr
-                    <input type="text">
-                </label>
-            </div><div>
-                <label>
-                    zhanr
-                    <input type="text">
-                </label>
+            <div class="form-two form-step">
+                <div class="bg-svg"></div>
+                <h2>Choice</h2>
+                <div class="radio-choice-group">
+                    <div><p>Choose category<span class="required">*</span></p></div>
+                    <div class="radio-choice-item">
+                        <input id="quest" type="radio" name="radio" onchange="toggleSections()" required>
+                        <div class="radio-tile">
+                            <div class="item">
+                                <img src="icons/costume.svg" alt="costume">
+                                <label for="quest">Quest room</label>
+                            </div>
+                            <div class="price">
+                                <p>Quest room costs 30€</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="radio-choice-item">
+                        <input id="board" type="radio" name="radio" onchange="toggleSections()" required>
+                        <div class="radio-tile">
+                            <div class="item">
+                                <img src="icons/chess-knight.svg" alt="chess" >
+                                <label for="board">Board games</label></div>
+                            <div class="price">
+                                <p>Board games costs 15€</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="radio-choice-item">
+                        <input id="pc" type="radio" name="radio" onchange="toggleSections()" required>
+                        <div class="radio-tile">
+                            <div class="item"><img src="icons/computer%20(1).svg" alt="computer">
+                            <label for="pc">Computers</label></div>
+
+                            <div class="price">
+                                <p>Computer games costs 20€</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quest-room" style="display: none">
+                    <div class="depended-selects">
+                        <div>
+                            <label for="quest-genre">Choose a genre</label>
+                            <select class="first-select" id="quest-genre" name="quest-genre" onchange="changeDropdownValue(this.value, 'quest-game', 'questGenreValues')">
+                                <option value="" disabled selected>Select</option>
+                                <option value="Horror">Horror</option>
+                                <option value="Detective">Detective</option>
+                                <option value="Mystery">Mystery</option>
+                                <option value="Adventure">Adventure</option>
+                            </select>
+                        </div>
+                        <div class="second-select">
+                            <label for="quest-game">Choose a plot</label>
+                            <select id="quest-game" name="quest-game" onchange="changeThirdDropdown(this.value, 'quest-difficulty', 'questPlotValues')">
+                                <option value="" disabled selected>Select</option>
+                            </select>
+                        </div>
+                        <div class="third-select">
+                            <label for="quest-difficulty">Choose difficulty</label>
+                            <select id="quest-difficulty" name="quest-difficulty">
+                                <option value="" disabled selected>Select</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group">
+                    <input type="checkbox" id="photo" onclick=togglePrice()>
+                    <span></span>
+                    <label for="photo">Photo from surveillance camera</label>
+                    <div class="price" style="display:none;">
+                        <p>+5€</p>
+                    </div>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="camera" onclick=togglePrice()>
+                    <span></span>
+                    <label for="camera">A GoPro camera</label>
+                    <div class="price" style="display:none;">
+                        <p>+10€</p>
+                    </div>
+                </div>      <div class="checkbox-group">
+                            <input type="checkbox" id="costume" onclick=togglePrice()>
+                            <span></span>
+                            <label for="costume">Thematic costume</label>
+                        <div class="price" style="display:none;">
+                            <p>+15€</p>
+                        </div>
+                        </div>
+                    <div class="checkbox-group">
+                            <input type="checkbox" id="photo-actors" onclick=togglePrice()>
+                            <span></span>
+                            <label for="photo-actors">Photo with actors</label>
+                        <div class="price" style="display:none;">
+                            <p>+3€</p>
+                        </div>
+                        </div>
+                    <div class="checkbox-group">
+                        <label for="other-option">
+                            <input type="checkbox" id="other-option" name="extra" onchange="toggleOtherInput('other-option', 'other-input-container', 'other-input')">
+                            Other
+                        </label>
+                        <div id="other-input-container" style="display:none;" class="other">
+                            <label for="other-input"></label><textarea id="other-input" placeholder="You may give a custom option"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="board-games" style="display: none">
+                    <div class="depended-selects">
+                        <div>
+                            <label for="board-type">Choose a genre</label>
+                            <select class="first-select" id="board-type" name="board-type" onchange="changeDropdownValue(this.value, 'board-genre', 'boardGenreValues')">
+                                <option value="" disabled selected>Select</option>
+                                <option value="Mind">Mind games</option>
+                                <option value="Card">Card Games</option>
+                                <option value="ForKids">For kids</option>
+                                <option value="ForAdult">For adult</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="second-select">
+                            <label for="board-genre">Choose a plot</label>
+                            <select id="board-genre" name="board-genre" onchange="changeThirdDropdown(this.value, 'board-difficulty', 'boardPlotValues')">
+                                <option value="" disabled selected>Select</option>
+                            </select>
+                        </div>
+                        <div class="third-select">
+                            <label for="board-difficulty">Choose difficulty</label>
+                            <select id="board-difficulty" name="board-difficulty">
+                                <option value="" disabled selected>Select</option>
+                            </select>
+                        </div>
+                    </div>
+                <div class="checkbox-group">
+                            <input type="checkbox" id="Drinks-board" onclick=togglePrice()>
+                            <span></span>
+                            <label for="Drinks-board">Drinks(alcohol, non-alcohol)</label>
+                    <div class="price" style="display:none;">
+                        <p>+3€</p>
+                    </div>
+                        </div>
+                    <div class="checkbox-group">
+                            <input type="checkbox" id="Snacks-board" onclick=togglePrice()>
+                            <span></span>
+                            <label for="Snacks-board">Snacks</label>
+                        <div class="price" style="display:none;">
+                            <p>+4€</p>
+                        </div>
+                        </div>
+                    <div class="checkbox-group">
+                            <input type="checkbox" id="private-room" onclick=togglePrice()>
+                            <span></span>
+                            <label for="private-room">A private room with your own music </label>
+                        <div class="price" style="display:none;">
+                            <p>+15€</p>
+                        </div>
+                        </div>
+                    <div class="checkbox-group">
+                        <label for="other-board-option">
+                            <input type="checkbox" id="other-board-option" name="extra" onchange="toggleOtherInput('other-board-option', 'other-board-input-container', 'other-board-input')">
+                            Other
+                        </label>
+                    <div id="other-board-input-container" style="display:none;" class="other">
+                        <label for="other-board-input"></label><textarea id="other-board-input" placeholder="You may give a custom option"></textarea>
+                    </div>
+                </div>
+
+                </div>
+
+                <div class="computer-games" style="display: none">
+                    <div class="depended-selects">
+                        <div>
+                            <label for="game-type">Choose a type</label>
+                            <select class="first-select" id="game-type" name="game-type" onchange="changeDropdownValue(this.value, 'game-genre', 'gameGenreValues')">
+                                <option value="" disabled selected>Select</option>
+                                <option value="Arcade">Arcade games</option>
+                                <option value="Shooters">Shooters</option>
+                                <option value="Playstation">Playstation</option>
+                                <option value="StoryGames">Story games</option>
+                                <option value="Survivors">Survivors</option>
+                            </select>
+                        </div>
+                        <div class="second-select">
+                            <label for="game-genre">Choose a plot</label>
+                            <select id="game-genre" name="game-genre" onchange="changeThirdDropdown(this.value, 'game-difficulty', 'gamePlotValues')">
+                                <option value="" disabled selected>Select</option>
+                            </select>
+                        </div>
+                        <div class="third-select">
+                            <label for="game-difficulty">Choose difficulty</label>
+                            <select id="game-difficulty" name="game-difficulty">
+                                <option value="" disabled selected>Select</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="Drinks-game" onclick=togglePrice()>
+                        <span></span>
+                        <label for="Drinks-game">Drinks(alcohol, non-alcohol)</label>
+                        <div class="price" style="display:none;">
+                            <p>+3€</p>
+                        </div>
+                    </div>
+                    <div class="checkbox-group">
+                            <input type="checkbox" id="Snacks-game" onclick=togglePrice()>
+                            <span></span>
+                            <label for="Snacks-game">Snacks</label>
+                        <div class="price" style="display:none;">
+                            <p>+4€</p>
+                        </div>
+                    </div>
+                    <div class="checkbox-group">
+                            <input type="checkbox" id="soundproofing" onclick=togglePrice()>
+                            <span></span>
+                            <label for="soundproofing">A soundproofing place</label>
+                        <div class="price" style="display:none;">
+                            <p>+10€</p>
+                        </div>
+                        </div>
+                    <div class="checkbox-group">
+                        <label for="other-game-option">
+                            <input type="checkbox" id="other-game-option" name="extra" onchange="toggleOtherInput('other-game-option', 'other-game-input-container', 'other-game-input')">
+                            Other
+                        </label>
+                    <div id="other-game-input-container" style="display:none;" class="other">
+                        <label for="other-game-input"></label><textarea id="other-game-input" placeholder="You may give a custom option"></textarea>
+                    </div>
+                </div>
+
+                </div>
+                <div class="total">
+                    <p>Total: <span id="total-sum">0</span>€</p>
+                </div>
             </div>
+            <div class="form-three form-step">
+                <div class="bg-svg"></div>
+                <h2>Contact</h2>
+                <p>enter your contacts please</p>
+                <div>
+                    <label>
+                        Phone<span class="required">*</span>
+                        <input class="apply-class" id="phone" name="phone" type="tel" value="+" maxlength="16" oninput="formatPhone(this)" required>
+                    </label>
+                    <div class="form-error phone-error" style="display:none;"></div>
+                </div>
+                <span>Choose the date and time<span class="required">*</span></span>
+                <div class="booking-date-time-class">
+                    <label for="booking-date"></label>
+                    <input id="booking-date" type="date" class="date-input" required>
+                    <label for="booking-time"></label>
+                    <select id="booking-time" class="time-input" required>
+                    <option value="" disabled selected>Choose time</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="20:00">20:00</option>
+                    <option value="21:00">21:00</option>
+                    <option value="22:00">22:00</option>
+                    <option value="23:00">23:00</option>
+                    <option value="00:00">00:00</option>
+                    <option value="01:00">01:00</option>
+                    <option value="02:00">02:00</option>
+                    <option value="03:00">03:00</option>
+                </select>
+                </div>
+                <div>
+                    <label for="email-address">Email<span class="required">*</span></label>
+                    <input type="text" id="email-address" name="email" placeholder="123@gmail.com" required>
+                    <div class="form-error email-error" style="display:none;"></div>
+                </div>
+                <div id="nameField">
+                    <label><input type="text" value="Lilia Zhuravel" id="nameFieldID" name="name" readonly></label>
+                </div>
+                <button type="button" id="showNameFieldButton">Show name field </button>
+            </div>
+            <div class="form-error general-error"></div>
+            <div class="btn-group">
+                <button type="button" class="btn-prev" disabled>Back</button>
+                <button type="button" class="btn-next">Next</button>
+                <button type="button" id="btn-apply" class="btn-apply">Apply</button>
+            </div>
+                <div id="summaryModal" class="modal">
+                    <div class="modal-content">
+                        <h2>Summary</h2>
+                        <div id="summaryContent"></div>
+                        <button id="closeSummary">Close</button>
+                        <button type='submit' id="btn-submit">Submit</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="form-three form-step">
-            <h2>Contact</h2>
-            <p>enter your contacts please</p>
-            <label>
-                Phone
-                <input type="tel" placeholder="421******">
-            </label>
-        </div>
-        <div class="btn-group">
-            <button type="button" class="btn-prev" disabled>Back</button>
-            <button type="button" class="btn-prev">Next</button>
-            <button type="button" class="btn-prev">Submit</button>
-        </div>
-    </form>
     </div>
+    </div>
+<div class="content">
     <div class="firm-info">
         <div class="picture">
             <img src="./images/arcade-back.jpg" alt="background picture">
             <div class="clickable-arcade">
-                <input type="image" src="/images/av8.png" alt="Кнопка «input»">
+                <label>
+                    <img src="images/av8.png" alt="arcade">
+                <input type="button">
+                </label>
                 <p>click to fill out the form</p>
             </div>
-            <div class="contact">
-                <p>wca</p>
-                <p>rvce</p>
-            </div>
+
+                <div class="contact">
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=M0O-vquFHto&t=1797s">YouTube Tutorial</a></li>
+                        <li><a href="https://github.com/Kenkarate/phone-number-validation">International phone number</a></li>
+                        <li></li>
+                    </ul>
+                </div>
+
         </div>
+
         <div class="info">
             <h1>We are GameZone team</h1>
             <br>
@@ -136,8 +449,15 @@
             <br>
             <p>Come to us and spend your time unforgettably. Everyone will find something for themselves in GameZone. An evening with us is an evening filled with laughter, excitement and pleasant memories.</p>
         </div>
+
     </div>
 </div>
+</div>
+<script src="phone-number-validation/build/js/intlTelInput.js"></script>
+<script>
+    const input = document.querySelector("#phone");
+    window.intlTelInput(input, {});
+</script>
 <script src="scriptFormular.js"></script>
 </body>
 </html>
